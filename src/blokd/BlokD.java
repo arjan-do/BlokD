@@ -14,6 +14,7 @@ public class BlokD {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // hallo
+        MainWindow main = new MainWindow();
+        main.setVisible(true);
     }
 }
