@@ -33,7 +33,7 @@ public class MainPanel extends javax.swing.JPanel {
         
         Graphics2D g2D = (Graphics2D) g;      
  
-        g2D.setStroke(new BasicStroke(5));  // set stroke width of 10
+        g2D.setStroke(new BasicStroke(5));  
         
         g2D.setColor(Color.black);
         

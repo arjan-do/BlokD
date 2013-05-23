@@ -77,11 +77,11 @@ public class MainWindow extends javax.swing.JFrame {
         mainPanel1.setLayout(mainPanel1Layout);
         mainPanel1Layout.setHorizontalGroup(
             mainPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 388, Short.MAX_VALUE)
+            .add(0, 390, Short.MAX_VALUE)
         );
         mainPanel1Layout.setVerticalGroup(
             mainPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 288, Short.MAX_VALUE)
+            .add(0, 290, Short.MAX_VALUE)
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
