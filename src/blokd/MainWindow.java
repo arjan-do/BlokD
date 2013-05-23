@@ -15,12 +15,17 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+        
+        mainPanel1.startvakje = MazeLoader.load1();
+        
+        
         createmaze();
     }
 
     
     private void createmaze()
     {
+        /*
         Vakje start = new Vakje(1);
         Vakje vakje2 = new Vakje(2);
         Vakje vakje3 = new Vakje(3);
@@ -55,8 +60,11 @@ public class MainWindow extends javax.swing.JFrame {
         vakje13.setLeft(vakje15);
         vakje15.setDown(vakje16);
         
-        mainPanel1.startvakje = start;
         
+        vakje4.setDown(vakje8);
+        
+        mainPanel1.startvakje = start;
+        */
         
         
     }

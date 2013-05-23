@@ -41,6 +41,7 @@ public class MainPanel extends javax.swing.JPanel {
         if (startvakje != null){
             
             startvakje.draw(g2D, 0, 0);
+            startvakje.enddraw();
         }
         
     }
