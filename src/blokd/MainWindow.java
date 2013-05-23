@@ -16,58 +16,9 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         
-        mainPanel1.startvakje = MazeLoader.load1();
-        
-        
-        createmaze();
+        mainPanel1.startvakje = MazeLoader.load1(MazeLoader.level1);
     }
-
-    
-    private void createmaze()
-    {
-        /*
-        Vakje start = new Vakje(1);
-        Vakje vakje2 = new Vakje(2);
-        Vakje vakje3 = new Vakje(3);
-        Vakje vakje4 = new Vakje(4);
-        Vakje vakje5 = new Vakje(5);
-        Vakje vakje6 = new Vakje(6);
-        Vakje vakje7 = new Vakje(7);
-        Vakje vakje8 = new Vakje(8);
-        Vakje vakje9 = new Vakje(9);
-        Vakje vakje10 = new Vakje(10);
-        Vakje vakje11 = new Vakje(11);
-        Vakje vakje12 = new Vakje(12);
-        Vakje vakje13 = new Vakje(13);
-        Vakje vakje14 = new Vakje(14);
-        Vakje vakje15 = new Vakje(15);
-        Vakje vakje16 = new Vakje(16);
-        Vakje vakje17 = new Vakje(17);
-        
-        start.setRight(vakje2);
-        vakje2.setRight(vakje3);
-        vakje3.setRight(vakje4);
-        vakje2.setDown(vakje5);
-        vakje5.setRight(vakje6);
-        vakje5.setLeft(vakje7);
-        vakje6.setRight(vakje8);
-        vakje8.setDown(vakje9);
-        vakje9.setDown(vakje10);
-        vakje10.setLeft(vakje11);
-        vakje11.setLeft(vakje12);
-        vakje12.setUp(vakje13);
-        vakje13.setRight(vakje14);
-        vakje13.setLeft(vakje15);
-        vakje15.setDown(vakje16);
-        
-        
-        vakje4.setDown(vakje8);
-        
-        mainPanel1.startvakje = start;
-        */
-        
-        
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,11 +36,11 @@ public class MainWindow extends javax.swing.JFrame {
         mainPanel1.setLayout(mainPanel1Layout);
         mainPanel1Layout.setHorizontalGroup(
             mainPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 390, Short.MAX_VALUE)
+            .add(0, 651, Short.MAX_VALUE)
         );
         mainPanel1Layout.setVerticalGroup(
             mainPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 290, Short.MAX_VALUE)
+            .add(0, 427, Short.MAX_VALUE)
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
