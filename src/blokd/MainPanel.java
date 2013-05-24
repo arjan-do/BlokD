@@ -94,19 +94,27 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
         switch(e.getKeyCode()){
             case KeyEvent.VK_UP:
-                speler.beweeg("omhoog");
+                if(!speler.huidigvakje.muurup){
+                    speler.beweeg("omhoog");
+                }
                 repaint();
                 break;
             case KeyEvent.VK_RIGHT:
-                speler.beweeg("rechts");
+                if(!speler.huidigvakje.muurright){
+                    speler.beweeg("rechts");
+                }
                 repaint();
                 break;
             case KeyEvent.VK_DOWN:
-                speler.beweeg("omlaag");
+                if(!speler.huidigvakje.muurdown){
+                    speler.beweeg("omlaag");
+                }
                 repaint();
                 break;
             case KeyEvent.VK_LEFT:
-                speler.beweeg("links");
+                if(!speler.huidigvakje.muurleft){
+                    speler.beweeg("links");
+                }
                 repaint();
                 break;
         }        
