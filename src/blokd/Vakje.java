@@ -122,7 +122,7 @@ public class Vakje {
                 down.draw(g, x, y + 1);
             }
         }
-        g.drawString("" + id, x * 50 + 10, y * 50 + 20);
+        //g.drawString("" + id, x * 50 + 10, y * 50 + 20);
         
     }
     
