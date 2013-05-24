@@ -17,8 +17,9 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         
         mainPanel1.startvakje = MazeLoader.load1(MazeLoader.level2);
+        mainPanel1.startlevel();
+
     }
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

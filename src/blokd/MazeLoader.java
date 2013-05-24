@@ -74,13 +74,9 @@ public class MazeLoader {
                 }
                 
                 id ++;
-            }
-            
-            
-            
+            }  
         }
-        
-        
+               
         while(y < level.length){
             while(x < level[0].length){
 
@@ -98,7 +94,6 @@ public class MazeLoader {
                     working.muurdown = true;
                 }
 
-                
                 x += 2;
                 xsmall ++;
             }
@@ -109,12 +104,8 @@ public class MazeLoader {
             y += 2;
             ysmall ++;
         }
-            
+        vakjes[0][0].setSpeler(new Speler());
         return vakjes[0][0];
         
     }
-    
-    
-     
-    
 }
