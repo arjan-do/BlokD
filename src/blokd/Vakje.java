@@ -21,11 +21,18 @@ public class Vakje {
     boolean muurdown = false;
     int id ;
     boolean drawworking = false;
-
+    
+    Spelonderdeel speler;
+    
     public Vakje(int id) {
         this.id = id;   
     }
-    
+
+    public void setSpeler(Spelonderdeel speler) {
+        this.speler = speler;
+        this.speler.huidigvakje = this;
+    }
+      
     public void setDown(Vakje down) 
     {
         this.down = down;
@@ -79,7 +86,11 @@ public class Vakje {
     // tekenen van het huidige vakje en het aanroepen van het tekenen van de omliggende vakjes
     public void draw(Graphics2D g, int x, int y)
     {
+        if(speler != null){
+            speler.draw(g, x, y);
+        }
         drawworking = true;
+        
         System.out.println("X: " + x + " Y: " + y);
         
         if(muurleft == true)

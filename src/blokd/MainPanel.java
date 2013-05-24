@@ -8,23 +8,33 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  *
  * @author arjandoets
  */
-public class MainPanel extends javax.swing.JPanel {
+public class MainPanel extends javax.swing.JPanel implements KeyListener {
 
     /**
      * Creates new form MainWindow
      */
     
     public Vakje startvakje;
+    Speler speler; 
     
     public MainPanel() {
         initComponents();
+        
     }
 
+    public void startlevel(){
+        speler = (Speler)startvakje.speler;
+        this.requestFocusInWindow();
+        this.addKeyListener(this);
+    }
+    
     
     @Override
     protected void paintComponent(Graphics g)
@@ -37,9 +47,7 @@ public class MainPanel extends javax.swing.JPanel {
         
         g2D.setColor(Color.black);
         
-        
         if (startvakje != null){
-            
             startvakje.draw(g2D, 0, 0);
             startvakje.enddraw();
         }
@@ -71,4 +79,36 @@ public class MainPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_UP:
+                speler.beweeg("omhoog");
+                repaint();
+                break;
+            case KeyEvent.VK_RIGHT:
+                speler.beweeg("rechts");
+                repaint();
+                break;
+            case KeyEvent.VK_DOWN:
+                speler.beweeg("omlaag");
+                repaint();
+                break;
+            case KeyEvent.VK_LEFT:
+                speler.beweeg("links");
+                repaint();
+                break;
+        }        
+    }
 }
