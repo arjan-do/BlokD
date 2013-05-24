@@ -23,7 +23,6 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
     
     public Vakje startvakje;
     Speler speler; 
-    
     public MainPanel() {
         initComponents();
         
@@ -94,27 +93,19 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
         switch(e.getKeyCode()){
             case KeyEvent.VK_UP:
-                if(!speler.huidigvakje.muurup){
-                    speler.beweeg("omhoog");
-                }
+                speler.beweeg(Direction.UP);
                 repaint();
                 break;
             case KeyEvent.VK_RIGHT:
-                if(!speler.huidigvakje.muurright){
-                    speler.beweeg("rechts");
-                }
+                speler.beweeg(Direction.RIGHT);
                 repaint();
                 break;
             case KeyEvent.VK_DOWN:
-                if(!speler.huidigvakje.muurdown){
-                    speler.beweeg("omlaag");
-                }
+                speler.beweeg(Direction.DOWN);
                 repaint();
                 break;
             case KeyEvent.VK_LEFT:
-                if(!speler.huidigvakje.muurleft){
-                    speler.beweeg("links");
-                }
+                speler.beweeg(Direction.LEFT);
                 repaint();
                 break;
         }        

@@ -12,7 +12,7 @@ import java.awt.Graphics2D;
  */
 public class Speler extends Spelonderdeel{
     private boolean heeftBazzooka;
-    
+    private Direction direction;
     
     public Speler(){
         heeftBazzooka = false;
@@ -26,23 +26,31 @@ public class Speler extends Spelonderdeel{
     }
     
     @Override
-    public void beweeg(String richting){
-        switch(richting){
-            case "omhoog":
-                huidigvakje.up.setSpeler(this);
-                huidigvakje.down.speler = null;
+    public void beweeg(Direction direction){
+        switch(direction){
+            case UP:
+                if(!this.huidigvakje.muurup){
+                    huidigvakje.up.setSpeler(this);
+                    huidigvakje.down.speler = null;                    
+                }
                 break;
-            case "rechts":
-                huidigvakje.right.setSpeler(this);
-                huidigvakje.left.speler = null;                
+            case RIGHT:
+                if(!this.huidigvakje.muurright){
+                    huidigvakje.right.setSpeler(this);
+                    huidigvakje.left.speler = null;                     
+                }               
                 break;
-            case "omlaag":
-                huidigvakje.down.setSpeler(this);
-                huidigvakje.up.speler = null;
+            case DOWN:
+                if(!this.huidigvakje.muurdown){
+                    huidigvakje.down.setSpeler(this);
+                    huidigvakje.up.speler = null;                    
+                }
                 break;
-            case "links":
-                huidigvakje.left.setSpeler(this);
-                huidigvakje.right.speler = null;
+            case LEFT:
+                if(!this.huidigvakje.muurleft){
+                    huidigvakje.left.setSpeler(this);
+                    huidigvakje.right.speler = null;                    
+                }
                 break;
         }
     }
