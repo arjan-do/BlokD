@@ -16,7 +16,9 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         
-        mainPanel1.startvakje = MazeLoader.load1(MazeLoader.level2);
+        //mainPanel1.startvakje = MazeLoader.load1(MazeLoader.level2);
+        mainPanel1.startvakje = MazeGenerator.mazegen();
+        
         mainPanel1.startlevel();
 
     }
