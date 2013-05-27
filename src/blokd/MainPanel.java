@@ -22,7 +22,7 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
      */
     
     public Vakje startvakje;
-    public static int vakjessize = 20;
+    public static int vakjessize = 50;
     Speler speler; 
     public MainPanel() {
         initComponents();
@@ -87,11 +87,6 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
         switch(e.getKeyCode()){
             case KeyEvent.VK_UP:
                 speler.beweeg(Direction.UP);
@@ -115,5 +110,32 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
                 repaint();
                 break;
         }        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        /*switch(e.getKeyCode()){
+            case KeyEvent.VK_UP:
+                speler.beweeg(Direction.UP);
+                repaint();
+                break;
+            case KeyEvent.VK_RIGHT:
+                speler.beweeg(Direction.RIGHT);
+                repaint();
+                break;
+            case KeyEvent.VK_DOWN:
+                speler.beweeg(Direction.DOWN);
+                repaint();
+                break;
+            case KeyEvent.VK_LEFT:
+                speler.beweeg(Direction.LEFT);
+                repaint();
+                break;
+            case KeyEvent.VK_R:
+                startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
+                speler = (Speler)startvakje.speler;
+                repaint();
+                break;
+        } */       
     }
 }

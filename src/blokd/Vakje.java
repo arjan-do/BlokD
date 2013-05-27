@@ -122,41 +122,41 @@ public class Vakje {
         
         for( int i = pdir.size(); i != 0;  i --) {
         
-        Random random = new Random();   
-        int dir = random.nextInt(i);
+            Random random = new Random();   
+            int dir = random.nextInt(i);
         
-        Direction sdir = pdir.get(dir);
+            Direction sdir = pdir.get(dir);
         
-        switch (sdir) {
-            case LEFT:
-                if (!left.Done){
-                    left.generatelevel();
-                    draw.remove(Direction.LEFT);
-                    pdir.remove(Direction.LEFT);
-                }
-                break;
-            case UP:
-                if (!up.Done){
-                    up.generatelevel();
-                    draw.remove(Direction.UP);
-                    pdir.remove(Direction.UP);
-                }
-                break;
-            case RIGHT:
-                if (!right.Done){
-                    right.generatelevel();
-                    draw.remove(Direction.RIGHT);
-                    pdir.remove(Direction.RIGHT);
-                }
-                break;
-            case DOWN:
-                if (!down.Done){
-                    down.generatelevel();
-                    draw.remove(Direction.DOWN);
-                    pdir.remove(Direction.DOWN);
-                }
-                break;
-        }
+            switch (sdir) {
+                case LEFT:
+                    if (!left.Done){
+                        left.generatelevel();
+                        draw.remove(Direction.LEFT);
+                        pdir.remove(Direction.LEFT);
+                    }
+                    break;
+                case UP:
+                    if (!up.Done){
+                        up.generatelevel();
+                        draw.remove(Direction.UP);
+                        pdir.remove(Direction.UP);
+                    }
+                    break;
+                case RIGHT:
+                    if (!right.Done){
+                        right.generatelevel();
+                        draw.remove(Direction.RIGHT);
+                        pdir.remove(Direction.RIGHT);
+                    }
+                    break;
+                case DOWN:
+                    if (!down.Done){
+                        down.generatelevel();
+                        draw.remove(Direction.DOWN);
+                        pdir.remove(Direction.DOWN);
+                    }
+                    break;
+            }
            
         }
          
