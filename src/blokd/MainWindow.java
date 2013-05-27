@@ -34,6 +34,7 @@ public class MainWindow extends javax.swing.JFrame {
         mainPanel1 = new blokd.MainPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 800));
 
         org.jdesktop.layout.GroupLayout mainPanel1Layout = new org.jdesktop.layout.GroupLayout(mainPanel1);
         mainPanel1.setLayout(mainPanel1Layout);

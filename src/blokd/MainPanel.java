@@ -108,6 +108,11 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
                 speler.beweeg(Direction.LEFT);
                 repaint();
                 break;
+            case KeyEvent.VK_R:
+                startvakje = MazeGenerator.mazegen();
+                speler = (Speler)startvakje.speler;
+                repaint();
+                break;
         }        
     }
 }
