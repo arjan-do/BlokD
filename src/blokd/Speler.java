@@ -21,7 +21,7 @@ public class Speler extends Spelonderdeel{
     
     @Override
     public void draw(Graphics2D g, int x, int y){
-        g.fillRect(x*50 + 10, y*50 + 10, 30, 30);
+        g.fillRect(x*MainPanel.vakjessize + MainPanel.vakjessize / 4, y*MainPanel.vakjessize + MainPanel.vakjessize / 4, MainPanel.vakjessize /2, MainPanel.vakjessize / 2);
     
     }
     

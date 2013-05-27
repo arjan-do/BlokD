@@ -10,11 +10,11 @@ package blokd;
  */
 public class MazeGenerator {
     
-    static public Vakje mazegen(){
+    static public Vakje mazegen(int y, int x){
         
         int id = 0;
         
-        Vakje[][] vakjes = new Vakje[13][24]; 
+        Vakje[][] vakjes = new Vakje[y / MainPanel.vakjessize][x / MainPanel.vakjessize]; 
         
         for(int ver = 0; ver < vakjes.length; ver ++)
         {

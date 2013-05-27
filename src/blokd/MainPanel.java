@@ -22,6 +22,7 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
      */
     
     public Vakje startvakje;
+    public static int vakjessize = 20;
     Speler speler; 
     public MainPanel() {
         initComponents();
@@ -42,7 +43,7 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
         
         Graphics2D g2D = (Graphics2D) g;      
  
-        g2D.setStroke(new BasicStroke(5));  
+        g2D.setStroke(new BasicStroke(MainPanel.vakjessize / 10));  
         
         g2D.setColor(Color.black);
         
@@ -109,7 +110,7 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
                 repaint();
                 break;
             case KeyEvent.VK_R:
-                startvakje = MazeGenerator.mazegen();
+                startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
                 speler = (Speler)startvakje.speler;
                 repaint();
                 break;

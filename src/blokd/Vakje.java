@@ -159,9 +159,6 @@ public class Vakje {
         }
            
         }
-         System.out.println(draw);
-        
-         
          
         if(!draw.contains(Direction.LEFT)){
             muurleft = false;
@@ -203,22 +200,22 @@ public class Vakje {
         
         if(muurleft == true)
         {
-            g.drawLine(x * 50, y * 50, x * 50, y * 50 + 50);
+            g.drawLine(x * MainPanel.vakjessize, y * MainPanel.vakjessize, x * MainPanel.vakjessize, y * MainPanel.vakjessize + MainPanel.vakjessize);
         }  
         
         if(muurup == true)
         {
-            g.drawLine(x * 50, y * 50, x * 50 + 50, y * 50);
+            g.drawLine(x * MainPanel.vakjessize, y * MainPanel.vakjessize, x * MainPanel.vakjessize + MainPanel.vakjessize, y * MainPanel.vakjessize);
         }
         
         if(muurright == true)
         {
-            g.drawLine(x * 50 + 50, y * 50, x * 50 + 50, y * 50 + 50);
+            g.drawLine(x * MainPanel.vakjessize + MainPanel.vakjessize, y * MainPanel.vakjessize, x * MainPanel.vakjessize + MainPanel.vakjessize, y * MainPanel.vakjessize + MainPanel.vakjessize);
         }
         
         if(muurdown == true)
         {
-            g.drawLine(x * 50, y * 50 + 50, x * 50 + 50, y * 50 + 50);
+            g.drawLine(x * MainPanel.vakjessize, y * MainPanel.vakjessize + MainPanel.vakjessize, x * MainPanel.vakjessize + MainPanel.vakjessize, y * MainPanel.vakjessize + MainPanel.vakjessize);
         }
         
         if(left != null){
