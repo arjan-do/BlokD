@@ -22,7 +22,7 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
      */
     
     public Vakje startvakje;
-    public static int vakjessize = 20;
+    public static int vakjessize = 15;
     Speler speler; 
     public MainPanel() {
         initComponents();
