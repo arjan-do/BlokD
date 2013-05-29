@@ -18,9 +18,8 @@ public class MainWindow extends javax.swing.JFrame {
         
         //mainPanel1.startvakje = MazeLoader.load1(MazeLoader.level2);
         mainPanel1.startvakje = MazeGenerator.mazegen(mainPanel1.getHeight(), mainPanel1.getWidth());
-        
         mainPanel1.startlevel();
-
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
