@@ -38,7 +38,12 @@ public class MazeGenerator {
         vakjes[0][0].Done();
         
         vakjes[0][0].setSpeler(new Speler());
-        return vakjes[0][0];
+        
+        Vakje tmp = vakjes[0][0];
+        vakjes = null;
+        System.gc();
+        
+        return tmp;
     }
     
     

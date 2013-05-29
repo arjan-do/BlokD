@@ -122,10 +122,10 @@ public class Vakje {
         
         for( int i = pdir.size(); i != 0;  i --) {
         
-            Random random = new Random();   
-            int dir = random.nextInt(i);
+            //Random random = new Random();
+            //int dir = random.nextInt(i);
         
-            Direction sdir = pdir.get(dir);
+            Direction sdir = pdir.get(i - 1);
 
             switch (sdir) {
                 case LEFT:

@@ -117,7 +117,7 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
                 public void run()  {
                     redraw();
                 }
-                }, 10, 10);
+                }, 10, 1500);
                 }
                 break;
                 
@@ -135,8 +135,11 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
         long start = System.currentTimeMillis();
         startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
         speler = (Speler)startvakje.speler;
-        repaint();
+        
         System.out.println(System.currentTimeMillis() - start);
+        repaint();
+        
+        
     }
     
     
