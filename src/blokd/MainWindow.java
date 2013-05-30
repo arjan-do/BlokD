@@ -30,7 +30,7 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanel1 = new blokd.MainPanel();
+        mainPanel1 = new blokd.Speelveld();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(640, 480));
@@ -108,6 +108,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private blokd.MainPanel mainPanel1;
+    private blokd.Speelveld mainPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -201,22 +201,22 @@ public class Vakje {
         
         if(muurleft == true)
         {
-            g.drawLine(x * MainPanel.vakjessize, y * MainPanel.vakjessize, x * MainPanel.vakjessize, y * MainPanel.vakjessize + MainPanel.vakjessize);
+            g.drawLine(x * Speelveld.vakjessize, y * Speelveld.vakjessize, x * Speelveld.vakjessize, y * Speelveld.vakjessize + Speelveld.vakjessize);
         }  
         
         if(muurup == true)
         {
-            g.drawLine(x * MainPanel.vakjessize, y * MainPanel.vakjessize, x * MainPanel.vakjessize + MainPanel.vakjessize, y * MainPanel.vakjessize);
+            g.drawLine(x * Speelveld.vakjessize, y * Speelveld.vakjessize, x * Speelveld.vakjessize + Speelveld.vakjessize, y * Speelveld.vakjessize);
         }
         
         if(muurright == true)
         {
-            g.drawLine(x * MainPanel.vakjessize + MainPanel.vakjessize, y * MainPanel.vakjessize, x * MainPanel.vakjessize + MainPanel.vakjessize, y * MainPanel.vakjessize + MainPanel.vakjessize);
+            g.drawLine(x * Speelveld.vakjessize + Speelveld.vakjessize, y * Speelveld.vakjessize, x * Speelveld.vakjessize + Speelveld.vakjessize, y * Speelveld.vakjessize + Speelveld.vakjessize);
         }
         
         if(muurdown == true)
         {
-            g.drawLine(x * MainPanel.vakjessize, y * MainPanel.vakjessize + MainPanel.vakjessize, x * MainPanel.vakjessize + MainPanel.vakjessize, y * MainPanel.vakjessize + MainPanel.vakjessize);
+            g.drawLine(x * Speelveld.vakjessize, y * Speelveld.vakjessize + Speelveld.vakjessize, x * Speelveld.vakjessize + Speelveld.vakjessize, y * Speelveld.vakjessize + Speelveld.vakjessize);
         }
         
         if(left != null){

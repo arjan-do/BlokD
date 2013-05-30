@@ -14,7 +14,7 @@ public class MazeGenerator {
         
         int id = 0;
         
-        Vakje[][] vakjes = new Vakje[y / MainPanel.vakjessize][x / MainPanel.vakjessize]; 
+        Vakje[][] vakjes = new Vakje[y / Speelveld.vakjessize][x / Speelveld.vakjessize]; 
         
         for(int ver = 0; ver < vakjes.length; ver ++)
         {
