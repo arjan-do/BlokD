@@ -124,7 +124,7 @@ public class Vakje {
         
             Random random = new Random();
             int dir = random.nextInt(i);
-            int deletewall = random.nextInt(10);
+            int deletewall = random.nextInt(40);
             Direction sdir = pdir.get(dir);
 
             switch (sdir) {

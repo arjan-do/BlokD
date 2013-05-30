@@ -24,7 +24,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
      */
     
     public Vakje startvakje;
-    public static int vakjessize = 15;
+    public static int vakjessize = 50;
     Timer timer;
 
     Speler speler; 
