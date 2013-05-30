@@ -24,10 +24,12 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
      */
     
     public Vakje startvakje;
-    public static int vakjessize = 15;
+    public static int vakjessize = 30;
     Timer timer;
-
-    Speler speler; 
+    Speler speler;
+    //tmp
+    boolean showpath = false;
+    
     public Speelveld() {
         initComponents();
         
@@ -52,6 +54,11 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
         g2D.setColor(Color.black);
         
         if (startvakje != null){
+            if (showpath){
+                PathFinder route = new PathFinder();
+                speler.huidigvakje.findroute(route);
+                route.use();
+            }
             startvakje.draw(g2D, 0, 0);
             startvakje.Done();
         }
@@ -108,7 +115,21 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
                 speler.beweeg(Direction.LEFT);
                 repaint();
                 break;
-            case KeyEvent.VK_R:
+            case KeyEvent.VK_F:
+                if(showpath){
+                    showpath = false;
+                } else {
+                    showpath = true;
+                }
+                
+                repaint();
+                break;    
+                case KeyEvent.VK_R:
+                    startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
+                    speler = (Speler)startvakje.speler;
+                    repaint();
+                break;    
+            case KeyEvent.VK_L:
                 
                 if (timer == null){
                 timer = new Timer();
@@ -117,7 +138,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
                 public void run()  {
                     redraw();
                 }
-                }, 10, 5);
+                }, 10, 100);
                 }
                 break;
                 
@@ -134,7 +155,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
     public void redraw (){
         long start = System.currentTimeMillis();
         startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
-        speler = (Speler)startvakje.speler;
+        speler = (Speler)startvakje.speler;;
         repaint();
         System.out.println(System.currentTimeMillis() - start);
     }
