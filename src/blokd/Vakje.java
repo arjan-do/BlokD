@@ -4,9 +4,11 @@
  */
 package blokd;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Stack;
 
 /**
  *
@@ -21,8 +23,12 @@ public class Vakje {
     boolean muurright = true;
     Vakje down;
     boolean muurdown = true;
-    int id ;
     boolean Done = false;
+    
+    //tmp
+    int id;
+    boolean path;
+    int minstepstart = 0;
     
     Spelonderdeel speler;
     
@@ -83,6 +89,67 @@ public class Vakje {
                 down.Done();
             }
         }
+        minstepstart = 0;
+        path = false;
+    }
+    
+    public void findroute(PathFinder find){
+        
+        
+        
+        if((right == null) && (down == null)){
+            find.current.push(this);
+            find.foundroute();
+        } else if ((minstepstart == 0) || (minstepstart >= find.current.size())){
+            ArrayList<Direction> pdir = new ArrayList<>();
+            
+            find.current.push(this);
+            
+            if((left != null) && (!muurleft)){
+             
+                    if (!find.current.contains(left)){
+                        pdir.add(Direction.LEFT);
+                    }
+            }
+            
+            if((up != null) && (!muurup)){
+             
+                    if (!find.current.contains(up)){
+                        pdir.add(Direction.UP);
+                    }
+            }
+            if((right != null) && (!muurright)){
+             
+                    if (!find.current.contains(right)){
+                        pdir.add(Direction.RIGHT);
+                    }
+            }
+            if((down != null) && (!muurdown)){
+                
+                    if (!find.current.contains(down)){
+                        pdir.add(Direction.DOWN);
+                    }
+            }
+                
+                minstepstart = find.current.size();
+                
+                if(pdir.contains(Direction.LEFT)){
+                    left.findroute(find);
+                }
+                if(pdir.contains(Direction.UP)){
+                    up.findroute(find);
+                }
+                if(pdir.contains(Direction.RIGHT)){
+                    right.findroute(find);
+                }
+                if(pdir.contains(Direction.DOWN)){
+                    down.findroute(find);
+                }
+           
+            
+        }
+        
+        find.current.remove(this);      
     }
     
     
@@ -124,7 +191,9 @@ public class Vakje {
         
             Random random = new Random();
             int dir = random.nextInt(i);
-            int deletewall = random.nextInt(40);
+            int deletewall = random.nextInt(20);
+            //int deletewall = 2;
+            
             Direction sdir = pdir.get(dir);
 
             switch (sdir) {
@@ -207,6 +276,13 @@ public class Vakje {
     // tekenen van het huidige vakje en het aanroepen van het tekenen van de omliggende vakjes
     public void draw(Graphics2D g, int x, int y)
     {
+        
+        g.setColor(Color.red);
+        if (path) {
+            g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
+        }
+        
+        g.setColor(Color.black);
         if(speler != null){
             speler.draw(g, x, y);
         }
@@ -254,6 +330,9 @@ public class Vakje {
                 down.draw(g, x, y + 1);
             }
         }
+        
+        
+        
         //g.drawString("" + id, x * 50 + 10, y * 50 + 20);
         
     }
