@@ -124,7 +124,7 @@ public class Vakje {
         
             Random random = new Random();
             int dir = random.nextInt(i);
-        
+            int deletewall = random.nextInt(10);
             Direction sdir = pdir.get(dir);
 
             switch (sdir) {
@@ -133,18 +133,30 @@ public class Vakje {
                         left.generatelevel();
                         draw.remove(Direction.LEFT);
                         pdir.remove(Direction.LEFT);
+                    } else if (deletewall < 1) {
+                        draw.remove(Direction.LEFT);
+                        pdir.remove(Direction.LEFT);
                     }
+                    
+                    
                     break;
                 case UP:
                     if (!up.Done){
                         up.generatelevel();
                         draw.remove(Direction.UP);
                         pdir.remove(Direction.UP);
+                    } else if (deletewall < 1) {
+                        draw.remove(Direction.UP);
+                        pdir.remove(Direction.UP);
                     }
+                    
                     break;
                 case RIGHT:
                     if (!right.Done){
                         right.generatelevel();
+                        draw.remove(Direction.RIGHT);
+                        pdir.remove(Direction.RIGHT);
+                    } else if (deletewall < 1) {
                         draw.remove(Direction.RIGHT);
                         pdir.remove(Direction.RIGHT);
                     }
@@ -152,6 +164,9 @@ public class Vakje {
                 case DOWN:
                     if (!down.Done){
                         down.generatelevel();
+                        draw.remove(Direction.DOWN);
+                        pdir.remove(Direction.DOWN);
+                    } else if (deletewall < 1) {
                         draw.remove(Direction.DOWN);
                         pdir.remove(Direction.DOWN);
                     }
