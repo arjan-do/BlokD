@@ -38,11 +38,11 @@ public class MazeGenerator {
         vakjes[0][0].Done();
         
         vakjes[0][0].setSpeler(new Speler());
+        vakjes[y / Speelveld.vakjessize - 1][x / Speelveld.vakjessize - 1].setVriend(new Vriend());
         
         Vakje tmp = vakjes[0][0];
         vakjes = null;
         System.gc();
-        
         return tmp;
     }
     

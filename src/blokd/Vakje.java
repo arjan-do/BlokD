@@ -31,6 +31,7 @@ public class Vakje {
     int minstepstart = 0;
     
     Spelonderdeel speler;
+    Spelonderdeel vriend;
     
     public Vakje(int id) {
         this.id = id;   
@@ -40,7 +41,12 @@ public class Vakje {
         this.speler = speler;
         this.speler.huidigvakje = this;
     }
-      
+    
+    public void setVriend(Spelonderdeel vriend){
+        this.vriend = vriend;
+        this.vriend.huidigvakje= this;
+    }
+    
     public void setDown(Vakje down) 
     {
         this.down = down;
@@ -93,10 +99,7 @@ public class Vakje {
         path = false;
     }
     
-    public void findroute(PathFinder find){
-        
-        
-        
+    public void findroute(PathFinder find){        
         if((right == null) && (down == null)){
             find.current.push(this);
             find.foundroute();
@@ -275,11 +278,15 @@ public class Vakje {
     
     // tekenen van het huidige vakje en het aanroepen van het tekenen van de omliggende vakjes
     public void draw(Graphics2D g, int x, int y)
-    {
-        
+    {       
         g.setColor(Color.red);
         if (path) {
             g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
+        }
+        
+        g.setColor(Color.blue);
+        if(vriend != null){
+            vriend.draw(g, x, y);
         }
         
         g.setColor(Color.black);
@@ -287,8 +294,6 @@ public class Vakje {
             speler.draw(g, x, y);
         }
         Done = true;
-        
-        
         
         if(muurleft == true)
         {
@@ -330,9 +335,6 @@ public class Vakje {
                 down.draw(g, x, y + 1);
             }
         }
-        
-        
-        
         //g.drawString("" + id, x * 50 + 10, y * 50 + 20);
         
     }
