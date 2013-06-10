@@ -17,13 +17,14 @@ import java.util.TimerTask;
  *
  * @author arjandoets
  */
-public class Speelveld extends javax.swing.JPanel implements KeyListener {
+public class Speelveld extends javax.swing.JPanel implements KeyListener, SpelerListener{
 
     /**
      * Creates new form MainWindow
      */
     
     public Vakje startvakje;
+    public Vakje vakje;
     public static int vakjessize = 30;
     Timer timer;
     Speler speler;
@@ -36,7 +37,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
     }
 
     public void startlevel(){
-        speler = (Speler)startvakje.speler;
+        speler = (Speler)startvakje.bevat;
         this.requestFocusInWindow();
         this.addKeyListener(this);
     }
@@ -126,7 +127,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
                 break;    
                 case KeyEvent.VK_R:
                     startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
-                    speler = (Speler)startvakje.speler;
+                    speler = (Speler)startvakje.bevat;
                     repaint();
                 break;    
             case KeyEvent.VK_L:
@@ -142,7 +143,6 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
                 }
                 break;
                 
-                
             case KeyEvent.VK_S:
                 timer.cancel();
                 timer = null;
@@ -155,36 +155,42 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener {
     public void redraw (){
         long start = System.currentTimeMillis();
         startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
-        speler = (Speler)startvakje.speler;;
+        speler = (Speler)startvakje.bevat;;
         repaint();
         System.out.println(System.currentTimeMillis() - start);
     }
-    
-    
+
     @Override
     public void keyReleased(KeyEvent e) {
         /*switch(e.getKeyCode()){
             case KeyEvent.VK_UP:
-                speler.beweeg(Direction.UP);
+                bevat.beweeg(Direction.UP);
                 repaint();
                 break;
             case KeyEvent.VK_RIGHT:
-                speler.beweeg(Direction.RIGHT);
+                bevat.beweeg(Direction.RIGHT);
                 repaint();
                 break;
             case KeyEvent.VK_DOWN:
-                speler.beweeg(Direction.DOWN);
+                bevat.beweeg(Direction.DOWN);
                 repaint();
                 break;
             case KeyEvent.VK_LEFT:
-                speler.beweeg(Direction.LEFT);
+                bevat.beweeg(Direction.LEFT);
                 repaint();
                 break;
             case KeyEvent.VK_R:
                 startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
-                speler = (Speler)startvakje.speler;
+                bevat = (Speler)startvakje.bevat;
                 repaint();
                 break;
         } */       
+    }
+
+    @Override
+    public void spelerEvent(EventType event) {
+        startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
+        speler = (Speler)startvakje.bevat;
+        repaint();        
     }
 }

@@ -30,21 +30,20 @@ public class Vakje {
     boolean path;
     int minstepstart = 0;
     
-    Spelonderdeel speler;
-    Spelonderdeel vriend;
+    Spelonderdeel bevat;
     
     public Vakje(int id) {
         this.id = id;   
     }
 
     public void setSpeler(Spelonderdeel speler) {
-        this.speler = speler;
-        this.speler.huidigvakje = this;
+        this.bevat = speler;
+        this.bevat.huidigvakje = this;
     }
     
     public void setVriend(Spelonderdeel vriend){
-        this.vriend = vriend;
-        this.vriend.huidigvakje= this;
+        this.bevat = vriend;
+        this.bevat.huidigvakje = this;
     }
     
     public void setDown(Vakje down) 
@@ -285,13 +284,13 @@ public class Vakje {
         }
         
         g.setColor(Color.blue);
-        if(vriend != null){
-            vriend.draw(g, x, y);
+        if(bevat != null){
+            bevat.draw(g, x, y);
         }
         
         g.setColor(Color.black);
-        if(speler != null){
-            speler.draw(g, x, y);
+        if(bevat != null){
+            bevat.draw(g, x, y);
         }
         Done = true;
         

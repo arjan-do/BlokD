@@ -4,6 +4,7 @@
  */
 package blokd;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
@@ -11,9 +12,9 @@ import java.awt.Graphics2D;
  * @author Tony
  */
 public class Vriend extends Spelonderdeel{
-    
     @Override
     public void draw(Graphics2D g, int x, int y) {
+        g.setColor(Color.blue);
         g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
     }
 

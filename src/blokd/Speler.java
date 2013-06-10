@@ -5,6 +5,7 @@
 package blokd;
 
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,16 +14,15 @@ import java.awt.Graphics2D;
 public class Speler extends Spelonderdeel{
     private boolean heeftBazzooka;
     private Direction direction;
+    private ArrayList<SpelerListener> listeners = new ArrayList<>();
     
     public Speler(){
         heeftBazzooka = false;
     }
     
-    
     @Override
     public void draw(Graphics2D g, int x, int y){
         g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
-    
     }
     
     @Override
@@ -31,25 +31,35 @@ public class Speler extends Spelonderdeel{
             case UP:
                 if(!this.huidigvakje.muurup){
                     huidigvakje.up.setSpeler(this);
-                    huidigvakje.down.speler = null;                    
+                    huidigvakje.down.bevat = null;                    
                 }
                 break;
             case RIGHT:
                 if(!this.huidigvakje.muurright){
+                    if(huidigvakje.right.bevat instanceof Vriend){
+                        for(SpelerListener listener : listeners){
+                            listener.spelerEvent(EventType.eindeLevel);
+                        }                    
+                    }
                     huidigvakje.right.setSpeler(this);
-                    huidigvakje.left.speler = null;                     
+                    huidigvakje.left.bevat = null;                     
                 }               
                 break;
             case DOWN:
                 if(!this.huidigvakje.muurdown){
+                    if(huidigvakje.down.bevat instanceof Vriend){  
+                        for(SpelerListener listener : listeners){
+                            listener.spelerEvent(EventType.eindeLevel);
+                        } 
+                    }                    
                     huidigvakje.down.setSpeler(this);
-                    huidigvakje.up.speler = null;                    
+                    huidigvakje.up.bevat = null;                    
                 }
                 break;
             case LEFT:
                 if(!this.huidigvakje.muurleft){
                     huidigvakje.left.setSpeler(this);
-                    huidigvakje.right.speler = null;                    
+                    huidigvakje.right.bevat = null;                    
                 }
                 break;
         }
