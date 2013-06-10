@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Speler extends Spelonderdeel{
     private boolean heeftBazzooka;
     private Direction direction;
-    private ArrayList<SpelerListener> listeners = new ArrayList<>();
+    private ArrayList<Speelveld> listeners = new ArrayList<>();
     
     public Speler(){
         heeftBazzooka = false;
@@ -30,6 +30,11 @@ public class Speler extends Spelonderdeel{
         switch(direction){
             case UP:
                 if(!this.huidigvakje.muurup){
+                    if(huidigvakje.up.bevat instanceof Helper){
+                        for(SpelerListener listener : listeners){
+                            listener.spelerEvent(EventType.showPath);
+                        }
+                    }
                     huidigvakje.up.setSpeler(this);
                     huidigvakje.down.bevat = null;                    
                 }
@@ -41,6 +46,11 @@ public class Speler extends Spelonderdeel{
                             listener.spelerEvent(EventType.eindeLevel);
                         }                    
                     }
+                    else if(huidigvakje.right.bevat instanceof Helper){
+                        for(SpelerListener listener : listeners){
+                            listener.spelerEvent(EventType.showPath);
+                        }
+                    }                    
                     huidigvakje.right.setSpeler(this);
                     huidigvakje.left.bevat = null;                     
                 }               
@@ -51,13 +61,23 @@ public class Speler extends Spelonderdeel{
                         for(SpelerListener listener : listeners){
                             listener.spelerEvent(EventType.eindeLevel);
                         } 
-                    }                    
+                    }               
+                    else if(huidigvakje.down.bevat instanceof Helper){
+                        for(SpelerListener listener : listeners){
+                            listener.spelerEvent(EventType.showPath);
+                        }
+                    }                      
                     huidigvakje.down.setSpeler(this);
                     huidigvakje.up.bevat = null;                    
                 }
                 break;
             case LEFT:
                 if(!this.huidigvakje.muurleft){
+                    if(huidigvakje.up.bevat instanceof Helper){
+                        for(SpelerListener listener : listeners){
+                            listener.spelerEvent(EventType.showPath);
+                        }
+                    }                      
                     huidigvakje.left.setSpeler(this);
                     huidigvakje.right.bevat = null;                    
                 }

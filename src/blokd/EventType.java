@@ -9,5 +9,5 @@ package blokd;
  * @author Tony
  */
 public enum EventType {
-    eindeLevel;
+    eindeLevel, showPath;
 }
