@@ -38,6 +38,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
 
     public void startlevel(){
         speler = (Speler)startvakje.bevat;
+        speler.listeners.add((SpelerListener)this);
         this.requestFocusInWindow();
         this.addKeyListener(this);
     }
@@ -55,6 +56,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
         g2D.setColor(Color.black);
         
         if (startvakje != null){
+            System.out.println(showpath);
             if (showpath){
                 PathFinder route = new PathFinder();
                 speler.huidigvakje.findroute(route);
@@ -196,11 +198,13 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
         }
         
         if(event.equals(EventType.showPath)){
+            System.out.println("bla");
             if(showpath){
-                showpath = false;
-            }else{
-                showpath = true;
-            }
+                    showpath = false;
+                } else {
+                    showpath = true;
+                }
+            System.out.println(showpath);
             repaint();            
         }
     }

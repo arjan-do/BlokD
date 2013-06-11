@@ -41,7 +41,7 @@ public class MazeGenerator {
         
         vakjes[0][0].setSpeler(new Speler());
         vakjes[y / Speelveld.vakjessize - 1][x / Speelveld.vakjessize - 1].setVriend(new Vriend());
-        vakjes[y / Speelveld.vakjessize - 10][x / Speelveld.vakjessize - 12].setVriend(new Helper());
+        vakjes[1][0].setVriend(new Helper());
         
         Vakje tmp = vakjes[0][0];
         vakjes = null;
