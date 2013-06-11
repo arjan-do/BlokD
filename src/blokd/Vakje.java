@@ -303,6 +303,7 @@ public class Vakje {
             bevat.draw(g, x, y);
         }
         
+        g.setColor(Color.black);
         Done = true;
         
         if(muurleft == true)
