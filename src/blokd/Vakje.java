@@ -288,21 +288,11 @@ public class Vakje {
             g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
         }
         
-        g.setColor(Color.green);
-        if(bevat != null){
-            bevat.draw(g, x, y);
-        }
-        
-        g.setColor(Color.blue);
         if(bevat != null){
             bevat.draw(g, x, y);
         }
         
         g.setColor(Color.black);
-        if(bevat != null){
-            bevat.draw(g, x, y);
-        }
-        
         Done = true;
         
         if(muurleft == true)

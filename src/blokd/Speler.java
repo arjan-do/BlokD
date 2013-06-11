@@ -4,6 +4,7 @@
  */
 package blokd;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
@@ -14,16 +15,17 @@ import java.util.ArrayList;
 public class Speler extends Spelonderdeel{
     private boolean heeftBazzooka;
     private Direction direction;
-    private ArrayList<SpelerListener> listeners = new ArrayList<>();
-    private Speelveld speelveld = new Speelveld();
+    public ArrayList<SpelerListener> listeners = new ArrayList<>();
+    
     
     public Speler(){
         heeftBazzooka = false;
-        listeners.add((SpelerListener)speelveld);
+        
     }
     
     @Override
     public void draw(Graphics2D g, int x, int y){
+        g.setColor(Color.black);
         g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
     }
     
@@ -86,6 +88,7 @@ public class Speler extends Spelonderdeel{
                             listener.spelerEvent(EventType.showPath);
                         }
                     }                      
+
                     huidigvakje.left.setSpeler(this);
                     huidigvakje.right.bevat = null;                    
                 }
