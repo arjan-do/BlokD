@@ -42,7 +42,6 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
         this.addKeyListener(this);
     }
     
-    
     @Override
     protected void paintComponent(Graphics g)
     {
