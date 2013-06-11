@@ -82,7 +82,7 @@ public class Speler extends Spelonderdeel{
                 break;
             case LEFT:
                 if(!this.huidigvakje.muurleft){
-                    if(huidigvakje.up.bevat instanceof Helper){
+                    if(huidigvakje.left.bevat instanceof Helper){
                         for(SpelerListener listener : listeners){
                             //System.out.println("Helper");
                             listener.spelerEvent(EventType.showPath);
