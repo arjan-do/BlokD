@@ -17,6 +17,8 @@ public class Bazooka extends Spelonderdeel{
     public void draw(Graphics2D g, int x, int y) {
         g.setColor(Color.yellow);
         g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
+        g.setColor(Color.black);
+        g.drawString("B",x*Speelveld.vakjessize + Speelveld.vakjessize / 3, y*Speelveld.vakjessize + Speelveld.vakjessize / 5 + Speelveld.vakjessize / 2);
     }
 
     
