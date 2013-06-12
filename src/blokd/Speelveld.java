@@ -126,7 +126,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 repaint();
                 break; 
             case KeyEvent.VK_B:
-                speler.inventory.add(new Bezoeka());
+                speler.inventory.add(new Bazooka());
                 repaint();
                 break; 
                 
