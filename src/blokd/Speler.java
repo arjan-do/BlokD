@@ -30,7 +30,7 @@ public class Speler extends Spelonderdeel{
         g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
         
         if(!inventory.isEmpty()){
-            if(inventory.peek() instanceof Bezoeka){
+            if(inventory.peek() instanceof Bazooka){
                 g.setColor(Color.white);
                 g.drawString("B",x*Speelveld.vakjessize + Speelveld.vakjessize / 3, y*Speelveld.vakjessize + Speelveld.vakjessize / 5 + Speelveld.vakjessize / 2);
             }
@@ -101,8 +101,8 @@ public class Speler extends Spelonderdeel{
     
     public void gebruikitem(){
         if(!inventory.isEmpty()){
-            if(inventory.peek() instanceof Bezoeka){
-                Bezoeka use = (Bezoeka)inventory.pop();
+            if(inventory.peek() instanceof Bazooka){
+                Bazooka use = (Bazooka)inventory.pop();
                 use.detonate(huidigvakje);
             }
         }
