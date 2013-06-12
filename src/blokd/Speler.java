@@ -45,7 +45,6 @@ public class Speler extends Spelonderdeel{
                 if(!this.huidigvakje.muurup){
                     if(huidigvakje.up.bevat instanceof Helper){
                         for(SpelerListener listener : listeners){
-                            //System.out.println("Helper");
                             listener.spelerEvent(EventType.showPath);
                         }
                     }
@@ -57,13 +56,11 @@ public class Speler extends Spelonderdeel{
                 if(!this.huidigvakje.muurright){
                     if(huidigvakje.right.bevat instanceof Vriend){
                         for(SpelerListener listener : listeners){
-                            //System.out.println("Vriend");
                             listener.spelerEvent(EventType.eindeLevel);
                         }                    
                     }
                     else if(huidigvakje.right.bevat instanceof Helper){
                         for(SpelerListener listener : listeners){
-                            //System.out.println("Helper");
                             listener.spelerEvent(EventType.showPath);
                         }
                     }                    
@@ -75,13 +72,11 @@ public class Speler extends Spelonderdeel{
                 if(!this.huidigvakje.muurdown){
                     if(huidigvakje.down.bevat instanceof Vriend){  
                         for(SpelerListener listener : listeners){
-                            //System.out.println("Vriend");
                             listener.spelerEvent(EventType.eindeLevel);
                         } 
                     }               
                     else if(huidigvakje.down.bevat instanceof Helper){
                         for(SpelerListener listener : listeners){
-                            //System.out.println("Helper");
                             listener.spelerEvent(EventType.showPath);
                         }
                     }                      
@@ -93,7 +88,6 @@ public class Speler extends Spelonderdeel{
                 if(!this.huidigvakje.muurleft){
                     if(huidigvakje.left.bevat instanceof Helper){
                         for(SpelerListener listener : listeners){
-                            //System.out.println("Helper");
                             listener.spelerEvent(EventType.showPath);
                         }
                     }                      
