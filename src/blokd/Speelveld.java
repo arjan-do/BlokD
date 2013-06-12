@@ -191,19 +191,17 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
     @Override
     public void spelerEvent(EventType event) {
         if(event.equals(EventType.eindeLevel)){
-            startvakje = MazeGenerator.mazegen(this.getHeight() - 5, this.getWidth() - 5);
+            startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
             speler = (Speler)startvakje.bevat;
             repaint();             
         }
         
         if(event.equals(EventType.showPath)){
-            System.out.println("bla");
             if(showpath){
                     showpath = false;
                 } else {
                     showpath = true;
                 }
-            System.out.println(showpath);
             repaint();            
         }
     }

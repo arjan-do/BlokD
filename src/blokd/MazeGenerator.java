@@ -14,6 +14,9 @@ public class MazeGenerator {
     
     static public Vakje mazegen(int y, int x){
         
+        Random rand = new Random();
+        int xHelper = rand.nextInt(x / Speelveld.vakjessize);
+        int yHelper = rand.nextInt(y / Speelveld.vakjessize);
         int id = 0;
         
         Vakje[][] vakjes = new Vakje[y / Speelveld.vakjessize][x / Speelveld.vakjessize]; 
@@ -41,7 +44,14 @@ public class MazeGenerator {
         
         vakjes[0][0].setSpeler(new Speler());
         vakjes[y / Speelveld.vakjessize - 1][x / Speelveld.vakjessize - 1].setVriend(new Vriend());
-        vakjes[1][0].setVriend(new Helper());
+        
+        if(vakjes[yHelper][xHelper].bevat instanceof Speler || vakjes[yHelper][xHelper].bevat instanceof Vriend){
+            xHelper = rand.nextInt(x / Speelveld.vakjessize);
+            yHelper = rand.nextInt(y / Speelveld.vakjessize);
+            vakjes[yHelper][xHelper].setHelper(new Helper());            
+        }else{
+            vakjes[yHelper][xHelper].setHelper(new Helper());
+        }
         
         Vakje tmp = vakjes[0][0];
         vakjes = null;
