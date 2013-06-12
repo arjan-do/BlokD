@@ -57,7 +57,6 @@ public class MainWindow extends javax.swing.JFrame {
         
         bazookaLabel.setText("Aantal bazooka's: " + bazooka);
         helperLabel.setText("Aantal helpers: " + helper);
- 
     }
     /**
      * This method is called from within the constructor to initialize the form.
