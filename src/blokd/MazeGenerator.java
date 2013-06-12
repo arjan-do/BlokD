@@ -61,7 +61,7 @@ public class MazeGenerator {
             int yBezoeka = rand.nextInt(y / Speelveld.vakjessize);
 
             if(vakjes[yBezoeka][xBezoeka].bevat == null){
-                vakjes[yBezoeka][xBezoeka].bevat = new Bezoeka();
+                vakjes[yBezoeka][xBezoeka].bevat = new Bazooka();
                 aangemaakt ++;
             }
         }

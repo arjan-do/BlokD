@@ -31,7 +31,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel1 = new blokd.Speelveld();
-        timer = new javax.swing.JTextField();
+        timerField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(640, 530));
@@ -47,7 +47,7 @@ public class MainWindow extends javax.swing.JFrame {
             .add(0, 448, Short.MAX_VALUE)
         );
 
-        timer.setEditable(false);
+        timerField.setEditable(false);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,14 +59,14 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap())
             .add(layout.createSequentialGroup()
                 .add(295, 295, 295)
-                .add(timer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(timerField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .add(timer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(timerField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 25, Short.MAX_VALUE)
                 .add(mainPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -112,13 +112,12 @@ public class MainWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new MainWindow().setVisible(true);
-                
+                new MainWindow().setVisible(true);                
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private blokd.Speelveld mainPanel1;
-    private javax.swing.JTextField timer;
+    private javax.swing.JTextField timerField;
     // End of variables declaration//GEN-END:variables
 }

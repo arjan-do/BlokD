@@ -38,9 +38,6 @@ public class Bazooka extends Spelonderdeel{
             vakje.muurdown = false;
             vakje.down.muurup = false;
         }
-        
-        
-        
     }
     
     @Override
