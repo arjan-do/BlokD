@@ -17,37 +17,47 @@ public class MainWindow extends javax.swing.JFrame {
      * Creates new form MainWindow
      */
     
-    int counter;
+    int counter = 500;
     Speler speler;
     public MainWindow() {
         initComponents();
         
         //mainPanel1.startvakje = MazeLoader.load1(MazeLoader.level2);   
-        speler = (Speler)mainPanel1.startvakje.bevat;
         mainPanel1.startvakje = MazeGenerator.mazegen(mainPanel1.getHeight(), mainPanel1.getWidth());
+        speler = (Speler)mainPanel1.startvakje.bevat;
         mainPanel1.startlevel();
         startTimer();
     }
     
     private void startTimer(){
-        System.out.println("yay!");
-        
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run(){
-                
-                System.out.println("niet in if");
                 if(counter > 0){
-                    System.out.println("in if");
                 timerLabel.setText("Timer: " + counter);
-                counter++;                    
+                counter--;      
+                updateInventorycounter();
                 }
             }
         }, 10, 1000);        
     }
     
-    public void updateInventory(){
+    private void updateInventorycounter(){
+        Object[] inventory = speler.inventory.toArray();
+        int bazooka = 0;
+        int helper = 0;
+        for(Object object : inventory){
+            if(object instanceof Bazooka){
+                bazooka++;
+            }
+            else if(object instanceof Helper){
+                helper++;
+            }
+        }
         
+        bazookaLabel.setText("Aantal bazooka's: " + bazooka);
+        helperLabel.setText("Aantal helpers: " + helper);
+ 
     }
     /**
      * This method is called from within the constructor to initialize the form.
