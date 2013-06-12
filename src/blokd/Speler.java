@@ -50,10 +50,9 @@ public class Speler extends Spelonderdeel{
                     if(huidigvakje.up.bevat != null){
                         inventory.add(huidigvakje.up.bevat);
                     }
+                    huidigvakje.up.setSpeler(this);
+                    huidigvakje.down.bevat = null;                    
                 }
-                huidigvakje.up.setSpeler(this);
-                huidigvakje.down.bevat = null;                    
-
                 break;
             case RIGHT:
                 if(!this.huidigvakje.muurright){
