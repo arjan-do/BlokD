@@ -54,8 +54,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
         
         g2D.setColor(Color.black);
         
-        if (startvakje != null){
-            System.out.println(showpath);
+        if (startvakje != null){            
             if (showpath){
                 PathFinder route = new PathFinder();
                 speler.huidigvakje.findroute(route);

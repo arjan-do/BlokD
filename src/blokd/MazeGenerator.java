@@ -53,6 +53,19 @@ public class MazeGenerator {
             vakjes[yHelper][xHelper].setHelper(new Helper());
         }
         
+        // aanmaken van bezoekas
+        int aangemaakt = 0;
+        
+        while(aangemaakt < 5){
+            int xBezoeka = rand.nextInt(x / Speelveld.vakjessize);
+            int yBezoeka = rand.nextInt(y / Speelveld.vakjessize);
+
+            if(vakjes[yBezoeka][xBezoeka].bevat == null){
+                vakjes[yBezoeka][xBezoeka].bevat = new Bezoeka();
+                aangemaakt ++;
+            }
+        }
+        
         Vakje tmp = vakjes[0][0];
         vakjes = null;
         System.gc();

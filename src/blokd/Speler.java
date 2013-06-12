@@ -33,7 +33,11 @@ public class Speler extends Spelonderdeel{
             if(inventory.peek() instanceof Bezoeka){
                 g.setColor(Color.white);
                 g.drawString("B",x*Speelveld.vakjessize + Speelveld.vakjessize / 3, y*Speelveld.vakjessize + Speelveld.vakjessize / 5 + Speelveld.vakjessize / 2);
+            } else if(inventory.peek() instanceof Helper){
+                g.setColor(Color.white);
+                g.drawString("H",x*Speelveld.vakjessize + Speelveld.vakjessize / 3, y*Speelveld.vakjessize + Speelveld.vakjessize / 5 + Speelveld.vakjessize / 2);
             }
+            
         }
         
     }
@@ -43,14 +47,13 @@ public class Speler extends Spelonderdeel{
         switch(direction){
             case UP:
                 if(!this.huidigvakje.muurup){
-                    if(huidigvakje.up.bevat instanceof Helper){
-                        for(SpelerListener listener : listeners){
-                            listener.spelerEvent(EventType.showPath);
-                        }
+                    if(huidigvakje.up.bevat != null){
+                        inventory.add(huidigvakje.up.bevat);
                     }
-                    huidigvakje.up.setSpeler(this);
-                    huidigvakje.down.bevat = null;                    
                 }
+                huidigvakje.up.setSpeler(this);
+                huidigvakje.down.bevat = null;                    
+
                 break;
             case RIGHT:
                 if(!this.huidigvakje.muurright){
@@ -59,11 +62,9 @@ public class Speler extends Spelonderdeel{
                             listener.spelerEvent(EventType.eindeLevel);
                         }                    
                     }
-                    else if(huidigvakje.right.bevat instanceof Helper){
-                        for(SpelerListener listener : listeners){
-                            listener.spelerEvent(EventType.showPath);
-                        }
-                    }                    
+                    else if(huidigvakje.right.bevat != null){
+                        inventory.add(huidigvakje.right.bevat);
+                    }                
                     huidigvakje.right.setSpeler(this);
                     huidigvakje.left.bevat = null;                     
                 }               
@@ -75,22 +76,18 @@ public class Speler extends Spelonderdeel{
                             listener.spelerEvent(EventType.eindeLevel);
                         } 
                     }               
-                    else if(huidigvakje.down.bevat instanceof Helper){
-                        for(SpelerListener listener : listeners){
-                            listener.spelerEvent(EventType.showPath);
-                        }
-                    }                      
+                    else if(huidigvakje.down.bevat != null){
+                        inventory.add(huidigvakje.down.bevat);
+                    }                 
                     huidigvakje.down.setSpeler(this);
                     huidigvakje.up.bevat = null;                    
                 }
                 break;
             case LEFT:
                 if(!this.huidigvakje.muurleft){
-                    if(huidigvakje.left.bevat instanceof Helper){
-                        for(SpelerListener listener : listeners){
-                            listener.spelerEvent(EventType.showPath);
-                        }
-                    }                      
+                    if(huidigvakje.left.bevat != null){
+                        inventory.add(huidigvakje.left.bevat);
+                    }                 
 
                     huidigvakje.left.setSpeler(this);
                     huidigvakje.right.bevat = null;                    
@@ -104,7 +101,15 @@ public class Speler extends Spelonderdeel{
             if(inventory.peek() instanceof Bezoeka){
                 Bezoeka use = (Bezoeka)inventory.pop();
                 use.detonate(huidigvakje);
+            } else if(inventory.peek() instanceof Helper){
+                inventory.pop();
+                for(SpelerListener listener : listeners){
+                    listener.spelerEvent(EventType.showPath);
+                }
             }
+            
+           
+            
         }
     }
 }
