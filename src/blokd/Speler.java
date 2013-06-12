@@ -7,6 +7,7 @@ package blokd;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Speler extends Spelonderdeel{
     private boolean heeftBazzooka;
     private Direction direction;
     public ArrayList<SpelerListener> listeners = new ArrayList<>();
-    
+    Stack inventory = new Stack();
     
     public Speler(){
         heeftBazzooka = false;
@@ -27,6 +28,14 @@ public class Speler extends Spelonderdeel{
     public void draw(Graphics2D g, int x, int y){
         g.setColor(Color.black);
         g.fillRect(x*Speelveld.vakjessize + Speelveld.vakjessize / 4, y*Speelveld.vakjessize + Speelveld.vakjessize / 4, Speelveld.vakjessize /2, Speelveld.vakjessize / 2);
+        
+        if(!inventory.isEmpty()){
+            if(inventory.peek() instanceof Bezoeka){
+                g.setColor(Color.white);
+                g.drawString("B",x*Speelveld.vakjessize + Speelveld.vakjessize / 3, y*Speelveld.vakjessize + Speelveld.vakjessize / 5 + Speelveld.vakjessize / 2);
+            }
+        }
+        
     }
     
     @Override
@@ -96,7 +105,12 @@ public class Speler extends Spelonderdeel{
         }
     }
     
-    public void vuurBazzooka(){
-        
+    public void gebruikitem(){
+        if(!inventory.isEmpty()){
+            if(inventory.peek() instanceof Bezoeka){
+                Bezoeka use = (Bezoeka)inventory.pop();
+                use.detonate(huidigvakje);
+            }
+        }
     }
 }

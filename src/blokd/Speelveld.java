@@ -125,12 +125,22 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 }
                 
                 repaint();
-                break;    
-                case KeyEvent.VK_R:
-                    startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
-                    speler = (Speler)startvakje.bevat;
-                    repaint();
-                break;    
+                break; 
+            case KeyEvent.VK_B:
+                speler.inventory.add(new Bezoeka());
+                repaint();
+                break; 
+                
+            case KeyEvent.VK_U:
+            speler.gebruikitem();
+            repaint();
+            break; 
+
+            case KeyEvent.VK_R:
+                startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
+                speler = (Speler)startvakje.bevat;
+                repaint();
+            break;    
             case KeyEvent.VK_L:
                 
                 if (timer == null){
