@@ -15,8 +15,6 @@ public class MazeGenerator {
     static public Vakje mazegen(int y, int x){
         
         Random rand = new Random();
-        int xHelper = rand.nextInt(x / Speelveld.vakjessize);
-        int yHelper = rand.nextInt(y / Speelveld.vakjessize);
         int id = 0;
         
         Vakje[][] vakjes = new Vakje[y / Speelveld.vakjessize][x / Speelveld.vakjessize]; 
@@ -45,12 +43,16 @@ public class MazeGenerator {
         vakjes[0][0].setSpeler(new Speler());
         vakjes[y / Speelveld.vakjessize - 1][x / Speelveld.vakjessize - 1].setVriend(new Vriend());
         
-        if(vakjes[yHelper][xHelper].bevat instanceof Speler || vakjes[yHelper][xHelper].bevat instanceof Vriend){
-            xHelper = rand.nextInt(x / Speelveld.vakjessize);
-            yHelper = rand.nextInt(y / Speelveld.vakjessize);
-            vakjes[yHelper][xHelper].setHelper(new Helper());            
-        }else{
-            vakjes[yHelper][xHelper].setHelper(new Helper());
+        for(int i = 0 ; i < 2 ; i++){
+            int xHelper = rand.nextInt(x / Speelveld.vakjessize);
+            int yHelper = rand.nextInt(y / Speelveld.vakjessize);
+            if(vakjes[yHelper][xHelper].bevat == null){
+                xHelper = rand.nextInt(x / Speelveld.vakjessize);
+                yHelper = rand.nextInt(y / Speelveld.vakjessize);
+                vakjes[yHelper][xHelper].setHelper(new Helper());            
+            }else{
+                vakjes[yHelper][xHelper].setHelper(new Helper());
+            }            
         }
         
         // aanmaken van bezoekas

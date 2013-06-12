@@ -4,6 +4,9 @@
  */
 package blokd;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  *
  * @author arjandoets
@@ -13,12 +16,37 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+    
+    int counter;
+    Speler speler;
     public MainWindow() {
         initComponents();
         
-        //mainPanel1.startvakje = MazeLoader.load1(MazeLoader.level2);
+        //mainPanel1.startvakje = MazeLoader.load1(MazeLoader.level2);   
+        speler = (Speler)mainPanel1.startvakje.bevat;
         mainPanel1.startvakje = MazeGenerator.mazegen(mainPanel1.getHeight(), mainPanel1.getWidth());
         mainPanel1.startlevel();
+        startTimer();
+    }
+    
+    private void startTimer(){
+        System.out.println("yay!");
+        
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run(){
+                
+                System.out.println("niet in if");
+                if(counter > 0){
+                    System.out.println("in if");
+                timerLabel.setText("Timer: " + counter);
+                counter++;                    
+                }
+            }
+        }, 10, 1000);        
+    }
+    
+    public void updateInventory(){
         
     }
     /**
@@ -31,10 +59,14 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel1 = new blokd.Speelveld();
-        timerField = new javax.swing.JTextField();
+        timerLabel = new javax.swing.JLabel();
+        bazookaLabel = new javax.swing.JLabel();
+        helperLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(640, 530));
+
+        mainPanel1.setPreferredSize(new java.awt.Dimension(620, 467));
 
         org.jdesktop.layout.GroupLayout mainPanel1Layout = new org.jdesktop.layout.GroupLayout(mainPanel1);
         mainPanel1.setLayout(mainPanel1Layout);
@@ -44,10 +76,14 @@ public class MainWindow extends javax.swing.JFrame {
         );
         mainPanel1Layout.setVerticalGroup(
             mainPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 448, Short.MAX_VALUE)
+            .add(0, 467, Short.MAX_VALUE)
         );
 
-        timerField.setEditable(false);
+        timerLabel.setText("Timer:");
+
+        bazookaLabel.setText("Aantal Bazooka's:");
+
+        helperLabel.setText("Aantal Helpers:");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,16 +94,23 @@ public class MainWindow extends javax.swing.JFrame {
                 .add(mainPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .add(layout.createSequentialGroup()
-                .add(295, 295, 295)
-                .add(timerField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(104, 104, 104)
+                .add(timerLabel)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(bazookaLabel)
+                .add(93, 93, 93)
+                .add(helperLabel)
+                .add(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .add(timerField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 25, Short.MAX_VALUE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(timerLabel)
+                    .add(bazookaLabel)
+                    .add(helperLabel))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 12, Short.MAX_VALUE)
                 .add(mainPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -117,7 +160,9 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bazookaLabel;
+    private javax.swing.JLabel helperLabel;
     private blokd.Speelveld mainPanel1;
-    private javax.swing.JTextField timerField;
+    private javax.swing.JLabel timerLabel;
     // End of variables declaration//GEN-END:variables
 }

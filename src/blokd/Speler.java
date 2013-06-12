@@ -106,9 +106,6 @@ public class Speler extends Spelonderdeel{
                     listener.spelerEvent(EventType.showPath);
                 }
             }
-            
-           
-            
         }
     }
 }
