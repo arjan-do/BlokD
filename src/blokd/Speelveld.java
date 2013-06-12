@@ -136,8 +136,10 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
             break; 
 
             case KeyEvent.VK_R:
+                Speler rememberspeler = speler;
                 startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
-                speler = (Speler)startvakje.bevat;
+                startvakje.setSpeler(rememberspeler);
+                showpath = false;
                 repaint();
             break;    
             case KeyEvent.VK_L:
@@ -200,9 +202,10 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
     @Override
     public void spelerEvent(EventType event) {
         if(event.equals(EventType.eindeLevel)){
-            startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
-            speler = (Speler)startvakje.bevat;
-            repaint();             
+            Speler rememberspeler = speler;
+                startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
+                startvakje.setSpeler(rememberspeler);
+                showpath = false;
         }
         
         if(event.equals(EventType.showPath)){
@@ -210,8 +213,8 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                     showpath = false;
                 } else {
                     showpath = true;
-                }
-            repaint();            
+                }  
         }
+        repaint();
     }
 }
