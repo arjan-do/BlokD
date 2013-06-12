@@ -77,13 +77,13 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(640, 530));
 
-        mainPanel1.setPreferredSize(new java.awt.Dimension(620, 467));
+        mainPanel1.setPreferredSize(new java.awt.Dimension(400, 400));
 
         org.jdesktop.layout.GroupLayout mainPanel1Layout = new org.jdesktop.layout.GroupLayout(mainPanel1);
         mainPanel1.setLayout(mainPanel1Layout);
         mainPanel1Layout.setHorizontalGroup(
             mainPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 620, Short.MAX_VALUE)
+            .add(0, 0, Short.MAX_VALUE)
         );
         mainPanel1Layout.setVerticalGroup(
             mainPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -101,17 +101,17 @@ public class MainWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(mainPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .add(layout.createSequentialGroup()
                 .add(104, 104, 104)
-                .add(timerLabel)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(bazookaLabel)
-                .add(93, 93, 93)
-                .add(helperLabel)
+                .add(timerLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(89, 89, 89)
+                .add(bazookaLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(79, 79, 79)
+                .add(helperLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(114, 114, 114))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .add(mainPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -121,8 +121,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .add(timerLabel)
                     .add(bazookaLabel)
                     .add(helperLabel))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 12, Short.MAX_VALUE)
-                .add(mainPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(mainPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
