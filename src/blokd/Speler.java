@@ -18,6 +18,23 @@ public class Speler extends Spelonderdeel{
     private Direction direction;
     public ArrayList<SpelerListener> listeners = new ArrayList<>();
     Stack inventory = new Stack();
+    private int score;
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+    
+    public void addScore(int score) {
+        this.score += score;
+    }
+    
+    public void removeScore(int score) {
+        this.score -= score;
+    }
     
     public Speler(){
         heeftBazzooka = false;

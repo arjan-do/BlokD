@@ -6,6 +6,7 @@ package blokd;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +18,7 @@ public class MainWindow extends javax.swing.JFrame {
      * Creates new form MainWindow
      */
     
-    int counter = 500;
+
     Speler speler;
     public MainWindow() {
         initComponents();
@@ -27,6 +28,9 @@ public class MainWindow extends javax.swing.JFrame {
         mainPanel1.startvakje = MazeGenerator.mazegen(mainPanel1.getHeight(), mainPanel1.getWidth());
         speler = (Speler)mainPanel1.startvakje.bevat;
         mainPanel1.startlevel();
+        PathFinder route = new PathFinder();
+        speler.huidigvakje.findroute(route);
+        speler.setScore(route.shortestfound.size());
         startTimer();
     }
     
@@ -34,13 +38,13 @@ public class MainWindow extends javax.swing.JFrame {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run(){
-                if(counter > 0){
-                timerLabel.setText("Timer: " + counter);
-                counter--;      
+                if(speler.getScore() > 0){
+                timerLabel.setText("Timer: " + speler.getScore());
+                speler.removeScore(1);      
                 updateInventorycounter();
                 }
             }
-        }, 10, 1000);        
+        }, 10, 300);
     }
     
     private void updateInventorycounter(){

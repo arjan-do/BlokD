@@ -140,25 +140,11 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
                 startvakje.setSpeler(rememberspeler);
                 showpath = false;
+                PathFinder route = new PathFinder();
+                speler.huidigvakje.findroute(route);
+                speler.setScore(route.shortestfound.size());
                 repaint();
             break;    
-            case KeyEvent.VK_L:
-                
-                if (timer == null){
-                timer = new Timer();
-                        
-                timer.schedule(new TimerTask() {
-                public void run()  {
-                    redraw();
-                }
-                }, 10, 100);
-                }
-                break;
-                
-            case KeyEvent.VK_S:
-                timer.cancel();
-                timer = null;
-                break;
         }        
     }
 
@@ -174,29 +160,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
 
     @Override
     public void keyReleased(KeyEvent e) {
-        /*switch(e.getKeyCode()){
-            case KeyEvent.VK_UP:
-                bevat.beweeg(Direction.UP);
-                repaint();
-                break;
-            case KeyEvent.VK_RIGHT:
-                bevat.beweeg(Direction.RIGHT);
-                repaint();
-                break;
-            case KeyEvent.VK_DOWN:
-                bevat.beweeg(Direction.DOWN);
-                repaint();
-                break;
-            case KeyEvent.VK_LEFT:
-                bevat.beweeg(Direction.LEFT);
-                repaint();
-                break;
-            case KeyEvent.VK_R:
-                startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
-                bevat = (Speler)startvakje.bevat;
-                repaint();
-                break;
-        } */       
+             
     }
 
     @Override
@@ -206,6 +170,9 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
                 startvakje.setSpeler(rememberspeler);
                 showpath = false;
+                PathFinder route = new PathFinder();
+                speler.huidigvakje.findroute(route);
+                speler.addScore(route.shortestfound.size());
         }
         
         if(event.equals(EventType.showPath)){
@@ -213,8 +180,18 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                     showpath = false;
                 } else {
                     showpath = true;
-                }  
+                    
+                    // setting a timer for disabling the pathfinder after 5 seconds
+                    Timer path = new Timer();
+                    path.schedule(new TimerTask() {
+                        public void run()  {
+                           showpath = false;
+                           repaint();
+                        }
+                    }, 5000);
+                    }
+                      
         }
-        repaint();
+        
     }
 }
