@@ -37,9 +37,7 @@ public class Speler extends Spelonderdeel{
                 g.setColor(Color.white);
                 g.drawString("H",x*Speelveld.vakjessize + Speelveld.vakjessize / 3, y*Speelveld.vakjessize + Speelveld.vakjessize / 5 + Speelveld.vakjessize / 2);
             }
-            
         }
-        
     }
     
     @Override
