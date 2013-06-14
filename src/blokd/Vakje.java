@@ -76,27 +76,27 @@ public class Vakje {
     }
     
     //de done variabele reseten bij alle vakjes
-    public void Done()
+    public void done()
     {
         Done = false;
         if(left != null){
             if(left.Done){
-                left.Done();
+                left.done();
             }
         }
         if(up != null){
             if(up.Done){
-                up.Done();
+                up.done();
             }
         }
         if(right != null){
             if(right.Done){
-                right.Done();
+                right.done();
             }
         }
         if(down != null){
             if(down.Done){
-                down.Done();
+                down.done();
             }
         }
         minstepstart = 0;
