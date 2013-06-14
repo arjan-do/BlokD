@@ -108,6 +108,12 @@ public class Speler extends Spelonderdeel{
                 }
                 break;
         }
+        if(!inventory.isEmpty()){
+            if(inventory.peek() instanceof Valsspeler){
+                inventory.pop();
+                addScore(50);
+            }
+        }
     }
     
     public void gebruikitem(){

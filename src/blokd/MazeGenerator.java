@@ -68,6 +68,19 @@ public class MazeGenerator {
             }
         }
         
+        // aanmaken van valsspelers
+        int v_aangemaakt = 0;
+        
+        while(v_aangemaakt < 1){
+            int xValsspeler = rand.nextInt(x / Speelveld.vakjessize);
+            int yValsspeler = rand.nextInt(y / Speelveld.vakjessize);
+
+            if(vakjes[yValsspeler][xValsspeler].bevat == null){
+                vakjes[yValsspeler][xValsspeler].bevat = new Valsspeler();
+                v_aangemaakt ++;
+            }
+        }
+        
         Vakje tmp = vakjes[0][0];
         vakjes = null;
         System.gc();
