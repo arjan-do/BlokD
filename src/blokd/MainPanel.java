@@ -53,7 +53,7 @@ public class MainPanel extends javax.swing.JPanel implements KeyListener {
         
         if (startvakje != null){
             startvakje.draw(g2D, 0, 0);
-            startvakje.Done();
+            startvakje.done();
         }
         
     }

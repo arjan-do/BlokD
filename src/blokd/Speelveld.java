@@ -61,7 +61,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 route.use();
             }
             startvakje.draw(g2D, 0, 0);
-            startvakje.Done();
+            startvakje.done();
         }
         
     }
@@ -189,9 +189,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                            repaint();
                         }
                     }, 5000);
-                    }
-                      
+                    }      
         }
-        
     }
 }

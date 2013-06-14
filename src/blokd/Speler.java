@@ -14,9 +14,7 @@ import java.util.Stack;
  * @author Tony
  */
 public class Speler extends Spelonderdeel{
-    private boolean heeftBazzooka;
-    private Direction direction;
-    public ArrayList<SpelerListener> listeners = new ArrayList<>();
+    ArrayList<SpelerListener> listeners = new ArrayList<>();
     Stack inventory = new Stack();
     private int score;
 
@@ -37,8 +35,6 @@ public class Speler extends Spelonderdeel{
     }
     
     public Speler(){
-        heeftBazzooka = false;
-        
     }
     
     @Override
@@ -72,9 +68,7 @@ public class Speler extends Spelonderdeel{
             case RIGHT:
                 if(!this.huidigvakje.muurright){
                     if(huidigvakje.right.bevat instanceof Vriend){
-                        for(SpelerListener listener : listeners){
-                            listener.spelerEvent(EventType.eindeLevel);
-                        }                    
+                        notify(EventType.eindeLevel);                   
                     }
                     else if(huidigvakje.right.bevat != null){
                         inventory.add(huidigvakje.right.bevat);
@@ -86,9 +80,7 @@ public class Speler extends Spelonderdeel{
             case DOWN:
                 if(!this.huidigvakje.muurdown){
                     if(huidigvakje.down.bevat instanceof Vriend){  
-                        for(SpelerListener listener : listeners){
-                            listener.spelerEvent(EventType.eindeLevel);
-                        } 
+                        notify(EventType.eindeLevel);
                     }               
                     else if(huidigvakje.down.bevat != null){
                         inventory.add(huidigvakje.down.bevat);
@@ -116,6 +108,12 @@ public class Speler extends Spelonderdeel{
         }
     }
     
+    private void notify(EventType type) {
+        for(SpelerListener listener : listeners){
+            listener.spelerEvent(type);
+        }
+    }   
+
     public void gebruikitem(){
         if(!inventory.isEmpty()){
             if(inventory.peek() instanceof Bazooka){
