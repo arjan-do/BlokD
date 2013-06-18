@@ -134,8 +134,8 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
             speler.gebruikitem();
             repaint();
             break; 
-
-            case KeyEvent.VK_R:
+            //Depth-first search
+            case KeyEvent.VK_1:
                 Speler rememberspeler = speler;
                 startvakje = MazeGenerator.mazegen(this.getHeight(), this.getWidth());
                 startvakje.setSpeler(rememberspeler);
@@ -144,7 +144,19 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 speler.huidigvakje.findroute(route);
                 speler.setScore(route.shortestfound.size());
                 repaint();
-            break;    
+            break;
+            //Aldous-Broder algorithm
+            case KeyEvent.VK_2:
+                Speler rememberspeler2 = speler;
+                startvakje = MazeGenerator.mazegen2(this.getHeight(), this.getWidth());
+                startvakje.setSpeler(rememberspeler2);
+                showpath = false;
+                PathFinder route2 = new PathFinder();
+                speler.huidigvakje.findroute(route2);
+                speler.setScore(route2.shortestfound.size());
+                repaint();
+            break;
+            
         }        
     }
 
