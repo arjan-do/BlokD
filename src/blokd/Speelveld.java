@@ -145,6 +145,7 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 speler.setScore(route.shortestfound.size());
                 repaint();
             break;
+            // de volgede twee cases zijn alleen voor het onderzoek
             //Aldous-Broder algorithm
             case KeyEvent.VK_2:
                 Speler rememberspeler2 = speler;
@@ -156,10 +157,20 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 speler.setScore(route2.shortestfound.size());
                 repaint();
             break;
+            case KeyEvent.VK_3:
+                Speler rememberspeler3 = speler;
+                startvakje = MazeGenerator.mazegen3(this.getHeight(), this.getWidth());
+                startvakje.setSpeler(rememberspeler3);
+                showpath = false;
+                PathFinder route3 = new PathFinder();
+                speler.huidigvakje.findroute(route3);
+                speler.setScore(route3.shortestfound.size());
+                repaint();
+            break;
             case KeyEvent.VK_T:
                 int testammount = 250;
                 int size = 2000;
-                System.out.println("Depth-first search");
+                System.out.println("Recursive backtracker(aangepast voor meerdere paden)");
                 Long avg = (long)0;
                 for (int i = 0; i < testammount; i++) {
                     long start = System.currentTimeMillis();
@@ -176,6 +187,18 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                     avg += (System.currentTimeMillis() - start);
                 }
                 System.out.println(avg / testammount);
+                
+                System.out.println("Growing tree algorithm");
+                avg = (long)0;
+                for (int i = 0; i < testammount; i++) {
+                    long start = System.currentTimeMillis();
+                    MazeGenerator.mazegen3(size, size);
+                    avg += (System.currentTimeMillis() - start);
+                }
+                System.out.println(avg / testammount);
+                
+                
+                
                 
             break;
         }        
