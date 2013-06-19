@@ -119,6 +119,7 @@ public class SpelerTest {
         System.out.println("ID beginvakje: " + speelveld.startvakje.id);
         System.out.println("ID vakje na lopen: " + instance.huidigvakje.id);
     }
+    
     /**
      * Test of filling the inventory, of class Speler.
      */
@@ -133,6 +134,7 @@ public class SpelerTest {
         instance.beweeg(direction);
         System.out.println("Inhoud inventory na oppakken: " + instance.inventory.toString());
     }
+    
     /**
      * Test of gebruikitem method, of class Speler.
      */
