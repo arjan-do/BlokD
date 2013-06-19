@@ -242,9 +242,10 @@ public class MazeGenerator {
         return tmp;
     } 
     
+
        //Growing tree algorithm
       static public Vakje mazegen3(int y, int x){
-        
+
         Random rand = new Random();
         int id = 0;
         
@@ -383,5 +384,7 @@ public class MazeGenerator {
         vakjes = null;
         System.gc();
         return tmp;
-    }    
+    } 
+   
+
 }

@@ -121,9 +121,7 @@ public class Speler extends Spelonderdeel{
                 use.detonate(huidigvakje);
             } else if(inventory.peek() instanceof Helper){
                 inventory.pop();
-                for(SpelerListener listener : listeners){
-                    listener.spelerEvent(EventType.showPath);
-                }
+                notify(EventType.showPath); 
             }
         }
     }
