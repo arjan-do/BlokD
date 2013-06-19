@@ -242,4 +242,70 @@ public class MazeGenerator {
         return tmp;
     } 
     
+    static public Vakje testBeweeg(int y, int x){
+        Random rand = new Random();
+        int id = 0;
+        
+        Vakje[][] vakjes = new Vakje[y / Speelveld.vakjessize][x / Speelveld.vakjessize]; 
+        
+        for(int ver = 0; ver < vakjes.length; ver ++)
+        {
+            for(int hor = 0; hor < vakjes[ver].length; hor ++)
+            {
+                vakjes[ver][hor] = new Vakje(id);
+                if (hor != 0)
+                {
+                    vakjes[ver][hor].setLeft(vakjes[ver][hor - 1]);
+                }
+                if (ver != 0)
+                {
+                    vakjes[ver][hor].setUp(vakjes[ver - 1][hor]);
+                }
+                id ++;
+            }  
+        }
+        vakjes[0][0].generatelevel();
+        vakjes[0][0].done();
+        
+        vakjes[0][0].setSpeler(new Speler());
+        
+        Vakje tmp = vakjes[0][0];
+        vakjes = null;
+        System.gc();
+        return tmp;
+    } 
+    
+    static public Vakje testInventory(int y, int x){
+        Random rand = new Random();
+        int id = 0;
+        
+        Vakje[][] vakjes = new Vakje[y / Speelveld.vakjessize][x / Speelveld.vakjessize]; 
+        
+        for(int ver = 0; ver < vakjes.length; ver ++)
+        {
+            for(int hor = 0; hor < vakjes[ver].length; hor ++)
+            {
+                vakjes[ver][hor] = new Vakje(id);
+                if (hor != 0)
+                {
+                    vakjes[ver][hor].setLeft(vakjes[ver][hor - 1]);
+                }
+                if (ver != 0)
+                {
+                    vakjes[ver][hor].setUp(vakjes[ver - 1][hor]);
+                }
+                id ++;
+            }  
+        }
+        vakjes[0][0].generatelevel();
+        vakjes[0][0].done();
+        
+        vakjes[0][0].setSpeler(new Speler());
+        vakjes[0][1].setHelper(new Helper());
+        
+        Vakje tmp = vakjes[0][0];
+        vakjes = null;
+        System.gc();
+        return tmp;
+    }     
 }
