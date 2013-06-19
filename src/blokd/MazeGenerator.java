@@ -191,8 +191,7 @@ public class MazeGenerator {
                 }
         
         }
-        System.out.println(max);
-        System.out.println(current);
+        
         vakjes[0][0].done();
         
         vakjes[0][0].setSpeler(new Speler());

@@ -156,7 +156,28 @@ public class Speelveld extends javax.swing.JPanel implements KeyListener, Speler
                 speler.setScore(route2.shortestfound.size());
                 repaint();
             break;
-            
+            case KeyEvent.VK_T:
+                int testammount = 250;
+                int size = 2000;
+                System.out.println("Depth-first search");
+                Long avg = (long)0;
+                for (int i = 0; i < testammount; i++) {
+                    long start = System.currentTimeMillis();
+                    MazeGenerator.mazegen(size, size);
+                    avg += (System.currentTimeMillis() - start);
+                }
+                System.out.println(avg / testammount);
+                
+                System.out.println("Aldous-Broder algorithm");
+                avg = (long)0;
+                for (int i = 0; i < testammount; i++) {
+                    long start = System.currentTimeMillis();
+                    MazeGenerator.mazegen2(size, size);
+                    avg += (System.currentTimeMillis() - start);
+                }
+                System.out.println(avg / testammount);
+                
+            break;
         }        
     }
 
